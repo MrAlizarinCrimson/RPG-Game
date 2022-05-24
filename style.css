@@ -1,3 +1,8 @@
+body {
+    max-resolution: 0;
+    padding: 0;
+}
+
 img {
     width: auto;
     height: 160px;
@@ -5,6 +10,7 @@ img {
 
 .header {
     font-family: 'Koulen', cursive;
+    margin: 10px 2rem;
 }
 
 .interface {
@@ -26,5 +32,5 @@ a {
 .character-details {
     margin-right: 20px;
     margin-left: 20px;
-    width: 20%;
+    width: 30%;
 }

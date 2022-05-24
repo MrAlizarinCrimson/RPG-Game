@@ -49,7 +49,7 @@ a {
 
 .character-details {
     margin-top: 1em;
-    margin-right: 20px;
+    margin-right: 5px;
     margin-left: 20px;
     width: 27%;
     background-color: rgba(255, 255, 255, 0.5);
@@ -59,4 +59,25 @@ a {
     backdrop-filter: blur(5.9px);
     -webkit-backdrop-filter: blur(5.9px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+/* AQUI COMIENZ EL RESPONSIVE */
+
+
+/* este es para tablet */
+
+@media (max-width: 1024px) {
+    .character-details {
+        width: 40%;
+    }
+}
+
+@media (max-width: 600px) {
+    .character-details {
+        width: 89%;
+    }
+    .character-details h3 {
+        text-align: center;
+    }
 }

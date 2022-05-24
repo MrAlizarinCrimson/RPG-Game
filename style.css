@@ -1,3 +1,53 @@
+/*esto es para instalar fuentes*/
+
+@font-face {
+    font-family: Ubuntu;
+    src: url("fonts/Ubuntu-Regular.ttf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Ubuntu;
+    src: url("fonts/Ubuntu-Light.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Ubuntu;
+    src: url("fonts/Ubuntu-Medium.ttf");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Ubuntu;
+    src: url("fonts/Ubuntu-Bold.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url(fonts/CormorantGaramond-Bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url(fonts/CormorantGaramond-Medium.ttf);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url(fonts/CormorantGaramond-Regular.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Staatliches;
+    src: url(./fonts/Staatliches-Regular.ttf);
+    font-weight: normal;
+}
+
 body {
     padding: 0;
     background-image: url(./img/pokemon-ball-g8da01aeac_1280.png);
@@ -15,9 +65,11 @@ img {
 }
 
 .header {
-    font-family: 'Koulen', cursive;
+    font-family: Staatliches, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 10px 2rem;
     color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .title-main {
@@ -47,18 +99,46 @@ a {
     font-family: 'Ubuntu', sans-serif;
 }
 
+.centrar-tarjetas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
 .character-details {
     margin-top: 1em;
     margin-right: 5px;
     margin-left: 20px;
     width: 27%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.55);
     padding: 1em;
     border-radius: 20px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.9px);
     -webkit-backdrop-filter: blur(5.9px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.next {
+    margin-top: 3em;
+    display: flex;
+    margin-bottom: 3em;
+}
+
+.next-btn,
+.back-btn {
+    font-size: 20px;
+    padding: 1em 7em;
+    background-color: #fff;
+    border-radius: 20px;
+    text-transform: uppercase;
+    /*    display: block; */
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 700;
 }
 
 

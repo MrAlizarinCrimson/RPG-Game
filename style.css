@@ -190,6 +190,8 @@ a {
     .character-details,
     .battelfield-details {
         width: 89%;
+        margin-right: 10px;
+        margin-left: 10px;
     }
     .character-details h3 {
         text-align: center;

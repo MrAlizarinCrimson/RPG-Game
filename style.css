@@ -55,6 +55,7 @@ body {
 
 .enemies-bg,
 .index-bg {
+    min-height: 100vh;
     background-image: url(./img/pokemon-ball-g8da01aeac_1280.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -156,6 +157,7 @@ a {
     background-image: url(./img/astronomy-g38666f8cd_1920.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh;
 }
 
 .battelfield-details img {
@@ -174,6 +176,13 @@ a {
     .character-details,
     .battelfield-details {
         width: 40%;
+    }
+    .next-btn,
+    .back-btn {
+        font-size: 16px;
+        padding: 0.7em;
+        min-width: 70px;
+        text-align: center;
     }
 }
 

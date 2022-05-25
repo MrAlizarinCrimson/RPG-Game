@@ -50,6 +50,11 @@
 
 body {
     padding: 0;
+    margin: 0;
+}
+
+.enemies-bg,
+.index-bg {
     background-image: url(./img/pokemon-ball-g8da01aeac_1280.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -66,10 +71,11 @@ img {
 
 .header {
     font-family: Staatliches, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin: 10px 2rem;
+    margin: 0 2rem 10px 2rem;
     color: #fff;
     text-transform: uppercase;
     font-weight: bold;
+    overflow: hidden;
 }
 
 .title-main {
@@ -108,7 +114,8 @@ a {
     justify-content: center;
 }
 
-.character-details {
+.character-details,
+.battelfield-details {
     margin-top: 1em;
     margin-right: 5px;
     margin-left: 20px;
@@ -125,7 +132,7 @@ a {
 .next {
     margin-top: 3em;
     display: flex;
-    margin-bottom: 3em;
+    min-height: 3em;
 }
 
 .next-btn,
@@ -139,6 +146,22 @@ a {
     margin-left: auto;
     margin-right: auto;
     font-weight: 700;
+    margin-bottom: 2em;
+}
+
+
+/* ESTILOS DEL CAMPO DE BATALLA */
+
+.battelfield-bg {
+    background-image: url(./img/astronomy-g38666f8cd_1920.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.battelfield-details img {
+    border-radius: 20px;
+    width: 100%;
+    object-fit: cover;
 }
 
 
@@ -148,13 +171,15 @@ a {
 /* este es para tablet */
 
 @media (max-width: 1024px) {
-    .character-details {
+    .character-details,
+    .battelfield-details {
         width: 40%;
     }
 }
 
 @media (max-width: 600px) {
-    .character-details {
+    .character-details,
+    .battelfield-details {
         width: 89%;
     }
     .character-details h3 {

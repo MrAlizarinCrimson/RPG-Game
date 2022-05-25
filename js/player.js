@@ -1,12 +1,13 @@
 	let player;
 
-	function player(clase, vida, mana, fuerza, agilidad, velocidad) {
+	function player(clase, hp, ataque, defensa, ataquesp, velocidad, defensasp) {
 		this.clase = clase;
-		this.vida = vida;
-		this.maná = maná;
-		this.fuerza = fuerza;
-		this.agilidad = agilidad;
+		this.hp = hp;
+		this.ataque = ataque;
+		this.defensa = defensa;
+		this.ataquesp = ataquesp;
 		this.velocidad = velocidad;
+		this.defensasp = defensasp;
 
 	}
 

@@ -1,11 +1,12 @@
 let enemies
 
-function enemies(clase, vida, mana, fuerza, agilidad, velocidad) {
-	this.clase = claseenemiga;
+function Player(clase, Vida, ataque, defensa, ataquesp, velocidad, defensasp) {
+	this.clase = clase;
 	this.vida = vida;
-	this.maná = maná;
-	this.fuerza = fuerza;
-	this.agilidad = agilidad;
+	this.ataque = ataque;
+	this.defensa = defensa;
+	this.ataquesp = ataquesp;
 	this.velocidad = velocidad;
+	this.defensasp = defensasp;
 
 }

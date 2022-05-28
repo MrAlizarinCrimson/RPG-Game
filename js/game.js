@@ -33,27 +33,26 @@ let gameManager = {
 		}
 		
 		let getInterface = document.querySelector(".interface");
-		getInterface.innerHTML = '<img src="img' + classType.tolowerCase() + '.png" class="img-avatar"><div><h3>' + classType + '</h3><p>Vida: ' + player.vida + '</p><p>Ataque: ' + player.Ataque + ' </p><p>Defensa: ' + player.Defensa + '</p><p>AtaqueSp: ' + player.AtaqueSp + '</p><p>Velocidad: ' + player.Velocidad + '</p><p>DefensaSp: ' + player.DefensaSp + '</p></div>';
+		getInterface.innerHTML = '<img src="img/avatar-player/' + classType.tolowerCase() + '.png" class="img-avatar"><div><h3>' + classType + '</h3><p class="vida-player">Vida: ' + player.vida + '</p><p>Ataque: ' + player.Ataque + ' </p><p>Defensa: ' + player.Defensa + '</p><p>AtaqueSp: ' + player.AtaqueSp + '</p><p>Velocidad: ' + player.Velocidad + '</p><p>DefensaSp: ' + player.DefensaSp + '</p></div>';
 
 	},
 	setprefight: function() {
-		let getHeader = document.querySelector(".header")
-		let getActions = document.querySelector(".actions")
-		let getArena = document.querySelector(".arena")
+		let getHeader = document.querySelector(".header");
+		let getActions = document.querySelector(".actions");
+		let getArena = document.querySelector(".arena");
 
 		getHeader.innerHTML = '<p>Inicio de Batalla</p>';
-		getActions.innerHTML = '<a href="#' class="btn-prefight" onclick="gameManager.setFight()">Encuentra un contricante</a>';
+		getActions.innerHTML = '<a href="#' class="btn-prefight" onclick="gameManager.setFight()">Selecciona un contricante</a>';
 		getArena.style.visibility = "visible";
-
-
 	},
 
+
 	setFight: function() {
-		let getHeader = document.querySelector(".header")
-		let getActions = document.querySelector(".actions")
-		let getEnemy = document.querySelector(".enemy")
-		
-		//crear enemigo
+		let getHeader = document.querySelector(".header");
+		let getActions = document.querySelector(".actions");
+		let getEnemy = document.querySelector(".enemy");
+
+		crear enemigo
 
 		let enemy00 = new Enemy("Evee", 200, 103, 94, 85, 103, 121)
 		let enemy01 = new Enemy("Caterpie", 200, 58, 67, 40, 85, 40)
@@ -63,6 +62,22 @@ let gameManager = {
 		let enemy05 = new Enemy("Squirtle", 198, 90, 121, 94, 81, 119)
 
 		//pensaba en quizá el enemigo sea aleatorio... pero creo mejor no a estas alturas hahahah
+		
+		let chooseRandomEnemy = Math.floor(Math.random() * Math.floor(2));
+		console.log(chooseRandomEnemy);
+		switch(chooseRandomEnemy) {
+			case 0:
+			enemy = enemy00;
+			break;
+			case 1:
+			enemy = enemy01
+			break;
+		}
+
+		getHeader.innerHTML = '<p>Elige tu movimiento</p>'
+		getActions.innerHTML = '<a href="#' class="btn-prefight" onclick="PlayerMoves.calcAttack()">Ataca!</a>';
+		getEnemy.innerHTML = '<img src="img/avatar-enemies/' + enemy.enemyType.tolowerCase() + '.png" alt="' + enemy.enemyType + '" class="img-avatar"><div><h3>' + enemy.enemyType + '</h3><p class="vida-enemy">Vida: ' + enemy.vida + '</h3><p>Ataque: ' + enemy.Ataque + '</p><p>'Defensa: ' + enemy.Defensa + '</p><p>AtaqueSp: ' + enemy.AtaqueSp + '</p><p>Velocidad: ' + enemy.Velocidad + '</p><p>DefensaSp: ' + enemy.DefensaSp + '</p></div>';
+
 
 
 	}

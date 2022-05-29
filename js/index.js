@@ -10,12 +10,15 @@ form.oninput = (event) => {
 
     if (nameRegex.test(name)) {
         nameValidation.innerText = "El nombre es correcto👍"
-        var masterName = nameInput;
     } else {
         nameValidation.innerText = "❌ No puede contener números, ni símbolos ni espacios."
     }
 }
+let setNombreMaestro = localStorage.setItem(nameInput);
+let getNombreMaestro = localStorage.getItem(nameInput);
 
+const master = getElementById("masterTitle");
+master.innerText = getNombreMaestro
 console.log(masterName)
     /* con esto obtenemos los id de cada pokemon cuando el usuario lo escoja */
 document.querySelectorAll(".character-details").forEach(el => {

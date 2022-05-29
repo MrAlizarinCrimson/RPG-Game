@@ -1,107 +1,109 @@
 	let player;
 
-	function Player(clase, Vida, ataque, defensa, ataquesp, velocidad, defensasp) {
-	    this.clase = clase;
-	    this.vida = vida;
-	    this.ataque = ataque;
-	    this.defensa = defensa;
-	    this.ataquesp = ataquesp;
-	    this.velocidad = velocidad;
-	    this.defensasp = defensasp;
+	function Player(classType, hp, sp, attack, agility, speed) {
+	    this.classType = classType ;
+	    this.hp = hp;
+	    this.sp = sp;
+	    this.attack = attack;
+	    this.agility = agility;
+	    this.speed = speed;
+	  
 
 	}
 
 	let PlayerMoves = {
 	    calcAttack: function() {
 	        //quien ataca primero?
-	        let getPlayerVelocidad = player.velocidad;
-	        let getEnemyVelocidad = enemy.velocidad;
+	        let getPlayerSpeed = player.speed;
+	        let getEnemySpeed = enemy.speed;
+	    }
 	        //Player Attack
-	        let player = function() {
+	        let playerAttack = function() {
 	                let calcBaseDamage;
-	                if (player.defensa > 0) {
-	                    calcBaseDamage = player.ataque * player.vida / 1000;
+	                if (player.sp > 0) {
+	                    calcBaseDamage = player.attack * player.sp / 1000;
 
 	                } else {
-	                    calcBaseDamage = player.ataque * player.defensa / 1000;
+	                    calcBaseDamage = player.attack * player.agility / 1000;
 
 	                }
-	                let offsetDamage = math.floor(Math.random() * Math.floor(10));
+	                //variabilidad en el daño
+	                let offsetDamage = Math.floor(Math.random() * Math.floor(10)); 
 	                let calcOutputDamage = calcBaseDamage + offsetDamage;
-	                //Cantidad de golpes
-	                let numberOfHits = Math.floor(Math.random() * Math.floor(player.velocidad / 10) / 2) + 1;
+	                //Cantidad de golpes, +1 para evitar llegar a 0, al menos 1 de daño.
+	                let numberOfHits = Math.floor(Math.random() * Math.floor(player.agility / 10) / 2) + 1; 
 	                let attackValues = [calcOutputDamage, numberOfHits];
 	                return attackValues;
 
 	            }
 	            // Enemy Attack
-	        let enemy = function() {
+	        let enemyAttack = function() {
 	                let calcBaseDamage;
-	                if (enemy.vida > 0) {
-	                    calcBaseDamage = enemy.strength * enemy.vida / 1000;
+	                if (enemy.hp > 0) {
+	                    calcBaseDamage = enemy.attack * enemy.hp / 1000;
 
 	                } else {
-	                    calcBaseDamage = enemy.strength * enemy.velocidad / 1000;
+	                    calcBaseDamage = enemy.attack * enemy.speed / 1000;
 
 	                }
 	                let offsetDamage = math.floor(Math.random() * Math.floor(10));
 	                let calcOutputDamage = calcBaseDamage + offsetDamage;
 	                //Cantidad de golpes
-	                let numberOfHits = Math.floor(Math.random() * Math.floor(enemy.velocidad / 10) / 2) + 1;
+	                let numberOfHits = Math.floor(Math.random() * Math.floor(enemy.agility / 10) / 2) + 1;
 	                let attackValues = [calcOutputDamage, numberOfHits];
 	                return attackValues;
 	            }
-	            //get player/enemy vida para que cambie luego!
-	        let getPlayerVida = document.querySelector(".vida-player");
-	        let getEnemyVida = document.querySelector(".vida-enemy");
+	            //get player/enemy hp para que cambie luego!
+	        let getPlayerHp = document.querySelector(".hp-player");
+	        let getEnemyHp = document.querySelector(".hp-enemy");
 	        //Inicio de ataque
-	        if (getPlayerVelocidad >= getEnemyVelocidad) {
+	        if (getPlayerSpeed >= getEnemySpeed) {
 	            let playerAttackValues = playerAttack();
 	            let totaldDamage = playerAttackValues[0] * playerAttackValues[1];
-	            enemy.vida = enemy.vida - totaldDamage;
+	            enemy.Hp = enemy.Hp - totaldDamage;
 	            alert("Inflingiste" + playerAttackValues[0] + "de daño" + playerAttackValues[1] + "veces.");
-	            if (enemy.vida <= 0) {
+	            if (enemy.hp <= 0) {
 	                alert("¡Has ganado! Actualiza el navegador para jugar nuevamente.");
-	                getPlayerVida.innerHTML = 'Vida: ' + player.vida;
-	                getEnemyVida.innerHTML = 'Vida: 0 ';
+	                getPlayerHp.innerHTML = 'Hp: ' + player.hp;
+	                getEnemyHp.innerHTML = 'Hp: 0 ';
 	            } else {
-	                getEnemyVida.innerHTML = 'Vida ' + '$enemy.vida ';
+	                getEnemyHp.innerHTML = 'Hp: ' + '$enemy.hp ';
 	            }
 	            //Ataque enemigo
 	            let enemyAttackValues = enemyAttack();
 	            let totaleDamage = enemyAttackValues[0] * enemyAttackValues[1];
-	            player.vida = player.vida - totaleDamage;
+	            player.hp = player.hp - totaleDamage;
 	            alert("Golpe enemigo" + enemyAttackValues[0] + "de daño" + enemyAttackValues[1] + "veces.");
-	            if (player.vida <= 0) {
+	            if (player.hp <= 0) {
 	                alert("¡Has perdido! Actualiza el navegador para jugar nuevamente.");
-	                getPlayerVida.innerHTML = 'Vida: 0 ';
-	                getEnemyVida.innerHTML = 'Vida:' + enemy.vida;
+	                getPlayerHp.innerHTML = 'Hp: 0 ';
+	                getEnemyHp.innerHTML = 'Hp:' + enemy.hp;
 	            } else {
-	                getPlayerVida.innerHTML = 'Vida: ' + player.vida;
+	                getPlayerHp.innerHTML = 'Hp: ' + player.hp;
 	            }
-	        } else if (getEnemyVelocidad >= getPlayerVelocidad) {
+	        } else if (getEnemySpeed >= getPlayerSpeed) {
 	            let enemyAttackValues = enemyAttack();
 	            let totaldDamage = enemyAttackValues[0] * enemyAttackValues[1];
-	            player.vida = player.vida - totaldDamage;
+	            player.hp = player.hp - totaldDamage;
 	            alert("Inflingiste" + enemyAttackValues[0] + "de daño" + enemyAttackValues[1] + "veces.");
-	            if (player.vida <= 0) {
+	            if (player.hp <= 0) {
 	                alert("¡Has perdido! Actualiza el navegador para jugar nuevamente.");
-	                getEnemyVida.innerHTML = 'Vida:' + enemy.vida;
-	                getPlayerVida.innerHTML = 'Vida:' + 0;
+	                getEnemyHp.innerHTML = 'Hp:' + enemy.hp;
+	                getPlayerHp.innerHTML = 'Hp:' + 0;
 	            } else {
-	                getPlayerVida.innerHTML = 'Vida: ' + player.vida;
+	                getPlayerHp.innerHTML = 'Hp: ' + player.hp;
 
 	                //Ataque player
 	                let playerAttackValues = playerAttack();
 	                let totaldDamage = playerAttackValues[0] * playerAttackValues[1];
-	                enemy.vida = enemy.vida - totaldDamage;
+	                enemy.hp = enemy.hp - totaldDamage;
 	                alert("Golpeaste" + playerAttackValues[0] + "de daño" + playerAttackValues[1] + "veces.");
-	                if (enemy.vida <= 0) {
+	                if (enemy.hp <= 0) {
 	                    alert("¡Has ganado! Actualiza el navegador para jugar nuevamente.");
-	                    getEnemyVida.innerHTML = 'Vida: 0 ';
-	                    getPlayerVida.innerHTML = 'Vida: ' + player.vida;
+	                    getEnemyHp.innerHTML = 'Hp: 0 ';
+	                    getPlayerHp.innerHTML = 'Hp: ' + player.hp;
 	                } else {
-	                    getEnemyVida.innerHTML = 'Vida: ' + enemy.vida;
+	                    getEnemyHp.innerHTML = 'Hp: ' + enemy.hp;
 
 	                }
 

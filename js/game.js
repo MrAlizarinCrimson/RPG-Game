@@ -1,89 +1,89 @@
-let gameManager = {
-    setgamestart: function(classtype) {
+let GameManager = {
+    setgamestart: function(classType) {
         this.resetPlayer(classType);
-        this.setpreFight();
+        this.setPreFight();
     },
     resetplayer: function(classtype) {
         switch (classType) {
             case "Bulbasaur":
-                player = new player(classtype, 200, 92, 92, 121, 85, 121);
+                player = new player(classType, 200, 121, 92, 121, 85);  //hp, sp, attack, agility, speed (el orden)...
                 break;
 
             case "Charmander":
-                player = new Player(classtype, 188, 98, 81, 112, 121, 94);
+                player = new Player(classType, 188, 112, 98, 94, 121);
                 break;
 
             case "Jigglypuff":
-                player = new player(classtype, 340, 85, 41, 85, 40, 49);
+                player = new player(classType, 340, 85, 85, 49, 40);
                 break;
 
             case "Pikachu":
-                player = new player(classtype, 180, 103, 76, 94, 166, 94);
+                player = new player(classType, 180, 94, 103, 94, 166);
                 break;
 
             case "Psyduck":
-                player = new player(classtype, 210, 98, 90, 121, 103, 94);
+                player = new player(classType, 210, 121, 98, 94, 103);
                 break;
 
             case "Snorlax":
-                player = new player(classtype, 430, 202, 121, 121, 58, 202);
+                player = new player(classType, 430, 121, 202, 202, 58);    //hp, sp, attack, agility, speed (el orden)...
+                break;
+
+            case "Evee":
+                player = new player(classType, 220, 94, 103, 121,103);
+                break;
+
+            case "Caterpie":
+                player = new player(classType, 200, 67, 58, 40, 85);
+                break;
+
+            case "Venonat":
+                player = new player(classType, 230, 94, 103, 103, 85);
+                break;
+
+            case "Dratini":
+                player = new player(classType, 192, 85, 119, 94, 94);
+                break;
+
+            case "Meowth":
+                player = new player(classType, 190, 67, 85, 76, 166);
+                break;
+
+            case "Squirtle":
+                player = new player(classType, 198, 121, 90, 119, 81);
                 break;
 
 
         }
 
         let getInterface = document.querySelector(".interface");
-        getInterface.innerHTML = '<img src="img/avatar-player/' + classType.tolowerCase() + '.png" class="img-avatar"><div><h3>' + classType + '</h3><p class="vida-player">Vida: ' + player.vida + '</p><p>Ataque: ' + player.Ataque + ' </p><p>Defensa: ' + player.Defensa + '</p><p>AtaqueSp: ' + player.AtaqueSp + '</p><p>Velocidad: ' + player.Velocidad + '</p><p>DefensaSp: ' + player.DefensaSp + '</p></div>';
+        getInterface.innerHTML = '<img src="img/' + classType.tolowerCase() + '.svg" class="img-avatar"><div><h3>' + classType + '</h3><p class=Hp: ' + player.hp + '</p><p class=Sp: ' + player.sp + '</p><p class=Attack: ' + player.attack + '</p><p class=Agility: ' + player.agility + '</p><p class=Speed: ' + player.speed + '</p></div>';
 
     },
-    setprefight: function() {
+    setPrefight: function() {
         let getHeader = document.querySelector(".header");
-        let getActions = document.querySelector(".actions");
-        let getArena = document.querySelector(".arena");
+        let getActions = document.querySelector(".actions"); //emparejar con lo de nat
+        let getArena = document.querySelector(".arena");//emparejar con lo de nat
 
-        getHeader.innerHTML = '<p>Inicio de Batalla</p>';
-        getActions.innerHTML = '<a href="#'
-            /*  class = "btn-prefight"
-             onclick = "gameManager.setFight()" > Selecciona un contricante < /a>';
-             getArena.style.visibility = "visible"; */
+        getHeader.innerHTML = '<p>Elige un enemigo</p>'; //esto no va
+        getActions.innerHTML = '<a href="./console.html"  class="btn-prefight" onclick = "GameManager.setFight()" > Selecciona un contricante < /a>';
+             
     },
 
 
     setFight: function() {
-        let getHeader = document.querySelector(".header");
+        let getHeader = document.querySelector(".header"); //setfight method, 
         let getActions = document.querySelector(".actions");
         let getEnemy = document.querySelector(".enemy");
 
-        /*  crear enemigo
-         */
-        let enemy00 = new Enemy("Evee", 200, 103, 94, 85, 103, 121)
-        let enemy01 = new Enemy("Caterpie", 200, 58, 67, 40, 85, 40)
-        let enemy02 = new Enemy("Venonat", 230, 103, 94, 76, 85, 103)
-        let enemy03 = new Enemy("Dratini", 192, 119, 85, 94, 94, 94)
-        let enemy04 = new Enemy("Meowth", 190, 85, 67, 76, 166, 76)
-        let enemy05 = new Enemy("Squirtle", 198, 90, 121, 94, 81, 119)
-
-        //pensaba en quizá el enemigo sea aleatorio... pero creo mejor no a estas alturas hahahah
-
-        let chooseRandomEnemy = Math.floor(Math.random() * Math.floor(2));
-        console.log(chooseRandomEnemy);
-        switch (chooseRandomEnemy) {
-            case 0:
-                enemy = enemy00;
-                break;
-            case 1:
-                enemy = enemy01
-                break;
-        }
-
+      
         getHeader.innerHTML = '<p>Elige tu movimiento</p>'
         getActions.innerHTML = '<a href="#'
-            /*   class = "btn-prefight"
-        onclick = "PlayerMoves.calcAttack()" > Ataca! < /a>';
-        getEnemy.innerHTML = '<img src="img/avatar-enemies/' + enemy.enemyType.tolowerCase() + '.png" alt="' + enemy.enemyType + '" class="img-avatar"><div><h3>' + enemy.enemyType + '</h3><p class="vida-enemy">Vida: ' + enemy.vida + '</h3><p>Ataque: ' + enemy.Ataque + '</p><p>'
-        Defensa: ' + enemy.Defensa + ' < /p><p>AtaqueSp: ' + enemy.AtaqueSp + '</p > < p > Velocidad: ' + enemy.Velocidad + ' < /p><p>DefensaSp: ' + enemy.DefensaSp + '</p > < /div>';
- */
 
+
+   
 
     }
+  
+}
 }

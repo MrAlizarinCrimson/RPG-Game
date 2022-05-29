@@ -167,6 +167,71 @@ a {
 }
 
 
+/* MASTER Styles */
+
+.master-bg {
+    background-image: url(./img/adventure-gdf8f4a4b7_1920.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 110vh;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-submit {
+    padding: 0.8rem 1rem;
+    margin-top: 2rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    background: white;
+    text-align: center;
+}
+
+.start-description {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: none;
+    padding: 1rem 10rem;
+    line-height: 32px;
+    font-size: 24px;
+}
+
+.master-input {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1rem;
+    min-width: 320px;
+    font-size: 1.1rem;
+    background-color: rgba(255, 255, 255, 0.55);
+    padding: 1em;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.9px);
+    -webkit-backdrop-filter: blur(5.9px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.master-input {
+    outline: white;
+    border-color: #fff;
+}
+
+
+/* estilos de la pantalla de opciones de inicio */
+
+.option-bg {
+    background-image: url(./img/option-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 110vh;
+}
+
+
 /* AQUI COMIENZ EL RESPONSIVE */
 
 
@@ -186,7 +251,7 @@ a {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .character-details,
     .battelfield-details {
         width: 89%;
@@ -195,5 +260,27 @@ a {
     }
     .character-details h3 {
         text-align: center;
+    }
+    .start-description {
+        padding: 0 2rem;
+        font-size: 16px;
+        font-weight: normal;
+    }
+    .master-bg {
+        min-height: 132vh;
+    }
+}
+
+@media (max-width: 380px) {
+    .start-description {
+        padding: 0 1rem;
+        font-size: 14px;
+        font-weight: normal;
+        margin-top: -20px;
+    }
+    .master-input {
+        min-width: 250px;
+        font-size: 12px;
+        margin-bottom: 20px;
     }
 }

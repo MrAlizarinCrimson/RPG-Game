@@ -1,12 +1,10 @@
-let enemies
+let enemy
 
-function Player(clase, Vida, ataque, defensa, ataquesp, velocidad, defensasp) {
-	this.clase = clase;
-	this.vida = vida;
-	this.ataque = ataque;
-	this.defensa = defensa;
-	this.ataquesp = ataquesp;
-	this.velocidad = velocidad;
-	this.defensasp = defensasp;
-
+function Enemy(enemyType, hp, sp, attack, agility, speed) {
+	    this.classType = classType ;
+	    this.hp = hp;
+	    this.sp = sp;
+	    this.attack = attack;
+	    this.agility = agility;
+	    this.speed = speed;
 }

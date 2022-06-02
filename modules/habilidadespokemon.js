@@ -20,10 +20,9 @@ export var Charmander = {
     skill: "Mar llamas",
     hiddenSkill: "poder solar",
     habitat: "montanna",
-    speed: "30",
-    precision: "40",
-    jump: "30",
-    fortaleza: "50",
+    hp:"40",
+    defense: "49",
+    speed: "55",
     ataques: {
         megapunno:"-70",
         megapatada: "-30",
